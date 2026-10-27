@@ -703,13 +703,25 @@ details.questions li { margin-bottom: 9px; }
 
 /* ---------- Founder block ---------- */
 
+/* The whole founder block sits in a tinted card so it reads as its own unit,
+   separate from the project copy above it. */
+.founder {
+  background: var(--mist);
+  border: 1px solid #a9dfe2;
+  border-radius: var(--radius);
+  padding: clamp(24px, 4vw, 36px);
+}
+
+/* the standard accent is 4.09:1 on mist — small text needs the darker tone */
+.founder .founder-role { color: var(--accent-on-mist); }
+
 /* Photo stacked above the text, left edge aligned with the copy below it. */
 .founder-photo {
   width: 100%;
   max-width: 420px;
   height: auto;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
+  border: 1px solid #a9dfe2;
   box-shadow: var(--shadow);
   margin-bottom: 28px;
 }
