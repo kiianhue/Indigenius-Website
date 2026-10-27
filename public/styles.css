@@ -100,7 +100,7 @@ p:last-child { margin-bottom: 0; }
   grid-template-columns: 1fr auto 1fr;   /* equal side columns => nav sits on the page centre */
   align-items: center;
   gap: 20px;
-  min-height: 92px;
+  min-height: 104px;
 }
 
 .brand {
@@ -113,7 +113,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .brand-logo {
-  height: 58px;
+  height: 68px;
   width: auto;
   display: block;
 }
@@ -176,11 +176,11 @@ p:last-child { margin-bottom: 0; }
   .nav.open { display: flex; }
   .nav a { padding: 12px 13px; }
   .site-header { position: relative; }
-  .brand-logo { height: 46px; }
+  .brand-logo { height: 52px; }
 }
 
 @media (max-width: 520px) {
-  .brand-logo { height: 38px; }
+  .brand-logo { height: 42px; }
 }
 
 /* ---------- Hero ---------- */
@@ -222,7 +222,7 @@ p:last-child { margin-bottom: 0; }
 .hero-centered { text-align: center; }
 
 .hero-logo {
-  height: clamp(84px, 12vw, 136px);
+  height: clamp(104px, 15vw, 184px);
   width: auto;
   margin: 0 auto clamp(20px, 3vw, 32px);
 }
@@ -231,7 +231,7 @@ p:last-child { margin-bottom: 0; }
 .hero-centered .lede { margin-inline: auto; }
 .hero-centered .hero-actions { justify-content: center; }
 
-/* the mark already says the name — hide the duplicate in the sticky bar until scrolled past */
+/* on the tinted ground the standard accent is 4.09:1 — use the darker tone */
 .hero .eyebrow { color: var(--accent-on-mist); }
 .hero-centered .eyebrow { margin-bottom: 14px; }
 
