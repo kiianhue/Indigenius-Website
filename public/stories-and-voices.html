@@ -68,10 +68,11 @@
       </article>
 
       <article class="episode">
-        <div class="embed-slot">
-          <strong>Episode video goes here</strong>
-          Upload "Podcast with Yvette Roubideaux.mp4" to YouTube or Vimeo, then replace this block with the embed code.
-        </div>
+        <!-- To go live: paste the YouTube ID into data-video (the part after v= in the URL). -->
+        <button class="player" data-video="" aria-label="Play: A Conversation With Dr. Yvette Roubideaux">
+          <img src="img/poster-roubideaux.jpg" alt="A Conversation With Dr. Yvette Roubideaux" width="1600" height="900" loading="lazy">
+          <span class="play-badge" aria-hidden="true"></span>
+        </button>
         <div class="episode-body">
           <p class="episode-meta">Episode 02</p>
           <h3>Dr. Yvette Roubideaux</h3>
@@ -219,6 +220,31 @@
   t.addEventListener('click', function () {
     var open = n.classList.toggle('open');
     t.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Swap the poster for the real player only when someone asks for it.
+  document.querySelectorAll('.player').forEach(function (p) {
+    var id = (p.dataset.video || '').trim();
+
+    if (!id) {                       // recorded, not yet hosted
+      p.classList.add('is-pending');
+      p.setAttribute('aria-disabled', 'true');
+      var note = document.createElement('span');
+      note.className = 'player-note';
+      note.textContent = 'Episode coming soon';
+      p.appendChild(note);
+      return;
+    }
+
+    p.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+              '?autoplay=1&rel=0&modestbranding=1';
+      f.title = p.getAttribute('aria-label') || 'Episode video';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen = true;
+      p.replaceWith(f);
+    });
   });
 </script>
 

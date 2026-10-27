@@ -529,6 +529,86 @@ p:last-child { margin-bottom: 0; }
 .embed-slot strong { color: var(--ink-soft); display: block; margin-bottom: 6px; font-size: 1rem; }
 .embed-slot iframe { width: 100%; height: 100%; border: 0; }
 
+/* ---------- Click-to-load video player ---------- */
+/* Shows the poster first; the YouTube iframe is only fetched on click, so the
+   page stays fast and nothing is requested from YouTube until a visitor asks. */
+
+.player {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--gray-200);
+  cursor: pointer;
+  overflow: hidden;
+  font: inherit;
+}
+
+.player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+.player:hover img { transform: scale(1.03); }
+
+.player iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+.play-badge {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 6px 24px rgba(15, 127, 134, .4);
+  display: grid;
+  place-items: center;
+  transition: transform .2s ease, background .2s ease;
+}
+.play-badge::after {
+  content: "";
+  width: 0;
+  height: 0;
+  margin-left: 6px;
+  border-left: 22px solid #fff;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+}
+.player:hover .play-badge { transform: scale(1.08); background: var(--accent-dark); }
+.player:focus-visible { outline: 3px solid var(--accent-bright); outline-offset: -3px; }
+
+/* episode recorded but not yet hosted */
+.player.is-pending { cursor: default; }
+.player.is-pending img { filter: saturate(.35) brightness(.92); }
+.player.is-pending .play-badge { background: var(--ink-faint); box-shadow: none; }
+.player.is-pending:hover img { transform: none; }
+.player.is-pending:hover .play-badge { transform: none; background: var(--ink-faint); }
+
+.player-note {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  background: rgba(31, 41, 51, .85);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .play-badge { width: 60px; height: 60px; }
+  .play-badge::after { border-left-width: 17px; border-top-width: 11px; border-bottom-width: 11px; }
+}
+
 details.questions {
   margin-top: 20px;
   border-top: 1px solid var(--border);
