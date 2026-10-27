@@ -381,15 +381,6 @@ p:last-child { margin-bottom: 0; }
   font-size: .93rem;
 }
 
-.card-num {
-  font-family: var(--serif);
-  font-size: .9rem;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
 
 /* ---------- Pillars (three A's) ---------- */
 
