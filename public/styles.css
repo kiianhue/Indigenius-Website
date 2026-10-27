@@ -300,12 +300,42 @@ p:last-child { margin-bottom: 0; }
 
 /* ---------- Page head (interior pages) ---------- */
 
+/* same turquoise band as the home hero, scaled down for interior pages */
 .page-head {
-  background: var(--white);
+  position: relative;
+  background: linear-gradient(170deg, var(--mist) 0%, #e3f6f7 52%, var(--gray-bg) 100%);
   border-bottom: 1px solid var(--border);
   padding: clamp(44px, 6vw, 72px) 0 clamp(36px, 5vw, 56px);
+  overflow: hidden;
 }
+
+/* the bright accent hairline that anchors the band */
+.page-head::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--accent-bright);
+}
+
+/* soft bloom, pulled left to sit behind the left-aligned heading */
+.page-head::after {
+  content: "";
+  position: absolute;
+  top: -42%;
+  left: 0;
+  width: min(680px, 90vw);
+  aspect-ratio: 1;
+  transform: translateX(-24%);
+  background: radial-gradient(circle, rgba(43,196,201,.20) 0%, rgba(43,196,201,0) 68%);
+  pointer-events: none;
+}
+
+.page-head > .wrap { position: relative; z-index: 1; }
 .page-head h1 { max-width: 20ch; }
+
+/* on the tinted ground the standard accent is 4.09:1 — use the darker tone */
+.page-head .eyebrow { color: var(--accent-on-mist); }
 
 /* ---------- Sections ---------- */
 
@@ -698,7 +728,11 @@ details.questions li { margin-bottom: 9px; }
   text-decoration: none;
   white-space: nowrap;
 }
-.jumpnav a:hover { border-color: var(--accent); background: var(--mist); color: var(--accent-on-mist); }
+.jumpnav a:hover,
+.jumpnav a:focus-visible { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* on the tinted page head a grey hairline vanishes — tint it, and match the hero's hover fill */
+.page-head .jumpnav a { border-color: #9fd9dc; transition: background .15s ease, border-color .15s ease, color .15s ease; }
 
 /* a plain "also look at" list for links without a full card */
 .minilist { list-style: none; margin: 0; padding: 0; }
