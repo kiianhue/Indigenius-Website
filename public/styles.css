@@ -775,6 +775,9 @@ details.questions li { margin-bottom: 9px; }
 }
 .callout h3 { margin-bottom: .35em; color: var(--accent-on-mist); }
 .callout p { color: #14555b; font-size: .97rem; }
+/* the standard accent link is 4.09:1 on the mist ground — darken it */
+.callout a { color: var(--accent-on-mist); font-weight: 600; }
+.callout a:hover { color: #084a4f; }
 
 /* ---------- Prose ---------- */
 
