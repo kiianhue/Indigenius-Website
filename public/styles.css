@@ -96,31 +96,35 @@ p:last-child { margin-bottom: 0; }
 }
 
 .header-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;   /* equal side columns => nav sits on the page centre */
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
-  min-height: 76px;
+  min-height: 92px;
 }
 
 .brand {
+  grid-column: 1;
+  justify-self: start;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  flex: none;
+  min-width: 0;
 }
 
 .brand-logo {
-  height: 42px;
+  height: 58px;
   width: auto;
   display: block;
 }
 
-@media (max-width: 520px) {
-  .brand-logo { height: 34px; }
+.nav {
+  grid-column: 2;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
-
-.nav { display: flex; align-items: center; gap: 4px; }
 
 .nav a {
   color: var(--ink-soft);
@@ -146,9 +150,15 @@ p:last-child { margin-bottom: 0; }
   cursor: pointer;
 }
 
-@media (max-width: 820px) {
-  .nav-toggle { display: block; }
+@media (max-width: 920px) {
+  .header-inner {
+    grid-template-columns: auto 1fr;
+    min-height: 76px;
+  }
+  .brand { grid-column: 1; }
+  .nav-toggle { display: block; grid-column: 2; justify-self: end; }
   .nav {
+    grid-column: 1 / -1;
     display: none;
     position: absolute;
     top: 100%;
@@ -161,19 +171,73 @@ p:last-child { margin-bottom: 0; }
     padding: 10px 18px 18px;
     gap: 2px;
     box-shadow: var(--shadow);
+    z-index: 30;
   }
   .nav.open { display: flex; }
   .nav a { padding: 12px 13px; }
   .site-header { position: relative; }
+  .brand-logo { height: 46px; }
+}
+
+@media (max-width: 520px) {
+  .brand-logo { height: 38px; }
 }
 
 /* ---------- Hero ---------- */
 
 .hero {
-  background: linear-gradient(180deg, var(--gray-200) 0%, var(--gray-bg) 100%);
+  position: relative;
+  background: linear-gradient(170deg, var(--mist) 0%, #e3f6f7 48%, var(--gray-bg) 100%);
   border-bottom: 1px solid var(--border);
-  padding: clamp(56px, 9vw, 104px) 0 clamp(48px, 7vw, 84px);
+  padding: clamp(48px, 7vw, 80px) 0 clamp(52px, 8vw, 88px);
+  overflow: hidden;
 }
+
+/* bright turquoise hairline so the band is anchored by the accent colour */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--accent-bright);
+}
+
+/* soft turquoise bloom behind the mark — depth without another hard edge */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -28%;
+  left: 50%;
+  width: min(760px, 95vw);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(43,196,201,.22) 0%, rgba(43,196,201,0) 68%);
+  pointer-events: none;
+}
+
+.hero > .wrap { position: relative; z-index: 1; }
+
+/* ---------- Centred hero (home page) ---------- */
+
+.hero-centered { text-align: center; }
+
+.hero-logo {
+  height: clamp(84px, 12vw, 136px);
+  width: auto;
+  margin: 0 auto clamp(20px, 3vw, 32px);
+}
+
+.hero-centered h1 { max-width: 18ch; margin-inline: auto; }
+.hero-centered .lede { margin-inline: auto; }
+.hero-centered .hero-actions { justify-content: center; }
+
+/* the mark already says the name — hide the duplicate in the sticky bar until scrolled past */
+.hero .eyebrow { color: var(--accent-on-mist); }
+.hero-centered .eyebrow { margin-bottom: 14px; }
+
+/* a grey hairline disappears on the tinted ground — tint the outline too */
+.hero .btn-ghost { border-color: #9fd9dc; background: rgba(255,255,255,.55); }
+.hero .btn-ghost:hover { background: var(--white); border-color: var(--accent); }
 
 .eyebrow {
   text-transform: uppercase;
