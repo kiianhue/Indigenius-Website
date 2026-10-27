@@ -703,19 +703,15 @@ details.questions li { margin-bottom: 9px; }
 
 /* ---------- Founder block ---------- */
 
-.founder {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 38px;
-  align-items: start;
-}
-
+/* Photo stacked above the text, left edge aligned with the copy below it. */
 .founder-photo {
   width: 100%;
+  max-width: 420px;
   height: auto;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  margin-bottom: 28px;
 }
 
 .founder-name { margin-bottom: .15em; }
@@ -732,11 +728,6 @@ details.questions li { margin-bottom: 9px; }
   flex-wrap: wrap;
   gap: 7px;
   margin-top: 18px;
-}
-
-@media (max-width: 760px) {
-  .founder { grid-template-columns: 1fr; gap: 26px; }
-  .founder-photo { max-width: 300px; }
 }
 
 /* ---------- Pull quote ---------- */
