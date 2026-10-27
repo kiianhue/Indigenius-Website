@@ -1,0 +1,10 @@
+{
+  // Indigenius — static site served from Cloudflare Workers static assets.
+  // Deployed with: npx wrangler deploy
+  "name": "indigenius-website",
+  "compatibility_date": "2026-10-27",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  }
+}

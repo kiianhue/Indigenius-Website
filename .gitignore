@@ -1,0 +1,10 @@
+node_modules/
+.wrangler/
+.dev.vars
+.DS_Store
+*.log
+
+# Large media — host video on YouTube/Vimeo and embed it instead
+*.mp4
+*.mov
+*.HEIC
