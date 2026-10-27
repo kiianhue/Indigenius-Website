@@ -235,9 +235,19 @@ p:last-child { margin-bottom: 0; }
 .hero .eyebrow { color: var(--accent-on-mist); }
 .hero-centered .eyebrow { margin-bottom: 14px; }
 
-/* a grey hairline disappears on the tinted ground — tint the outline too */
-.hero .btn-ghost { border-color: #9fd9dc; background: rgba(255,255,255,.55); }
-.hero .btn-ghost:hover { background: var(--white); border-color: var(--accent); }
+/* hero quick links: solid white on the tinted ground, filling turquoise on hover */
+.hero .btn-ghost {
+  background: var(--white);
+  color: var(--ink);
+  border-color: #9fd9dc;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.hero .btn-ghost:hover,
+.hero .btn-ghost:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
 
 .eyebrow {
   text-transform: uppercase;
