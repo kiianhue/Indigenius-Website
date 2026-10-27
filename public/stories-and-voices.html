@@ -242,6 +242,7 @@
 
     p.addEventListener('click', function () {
       var f = document.createElement('iframe');
+      f.className = 'player-frame';   // keeps the poster's 16:9 box
       f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
               '?autoplay=1&rel=0&modestbranding=1';
       f.title = p.getAttribute('aria-label') || 'Episode video';

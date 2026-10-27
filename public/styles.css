@@ -558,6 +558,17 @@ p:last-child { margin-bottom: 0; }
 
 .player iframe { width: 100%; height: 100%; border: 0; display: block; }
 
+/* The iframe that replaces the poster on click — must inherit the poster's box,
+   otherwise the browser falls back to the default 300x150 iframe size. */
+.player-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: #000;
+}
+
 .play-badge {
   position: absolute;
   inset: 0;
