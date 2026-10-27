@@ -150,7 +150,7 @@ p:last-child { margin-bottom: 0; }
   cursor: pointer;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1000px) {
   .header-inner {
     grid-template-columns: auto 1fr;
     min-height: 76px;
@@ -700,6 +700,66 @@ details.questions li { margin-bottom: 9px; }
 }
 .minilist li:last-child { border-bottom: 0; }
 .minilist strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- Founder block ---------- */
+
+.founder {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 38px;
+  align-items: start;
+}
+
+.founder-photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.founder-name { margin-bottom: .15em; }
+
+.founder-role {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: .95rem;
+  margin: 0 0 1.1em;
+}
+
+.founder-honors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+
+@media (max-width: 760px) {
+  .founder { grid-template-columns: 1fr; gap: 26px; }
+  .founder-photo { max-width: 300px; }
+}
+
+/* ---------- Pull quote ---------- */
+
+.pullquote {
+  margin: clamp(32px, 5vw, 48px) 0 0;
+  padding: 0 0 0 clamp(20px, 3vw, 32px);
+  border-left: 4px solid var(--accent-bright);
+}
+.pullquote p {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0 0 .6em;
+}
+.pullquote cite {
+  font-style: normal;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--ink-faint);
+  letter-spacing: .03em;
+}
 
 /* ---------- Callout ---------- */
 
