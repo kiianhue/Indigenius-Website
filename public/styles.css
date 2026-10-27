@@ -100,26 +100,24 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  min-height: 70px;
+  min-height: 76px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 11px;
-  font-family: var(--serif);
-  font-size: 1.32rem;
-  font-weight: 600;
-  color: var(--ink);
   text-decoration: none;
-  letter-spacing: -0.015em;
-}
-.brand:hover { color: var(--ink); }
-
-.brand-mark {
-  width: 30px;
-  height: 30px;
   flex: none;
+}
+
+.brand-logo {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 520px) {
+  .brand-logo { height: 34px; }
 }
 
 .nav { display: flex; align-items: center; gap: 4px; }
