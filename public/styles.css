@@ -669,6 +669,38 @@ details.questions li { margin-bottom: 9px; }
 .tag.deadline { background: var(--mist); color: var(--accent-on-mist); }
 .tag.free { background: var(--accent); color: #fff; }
 
+/* ---------- Jump navigation ---------- */
+
+.jumpnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 26px;
+}
+.jumpnav a {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--accent-on-mist);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.jumpnav a:hover { border-color: var(--accent); background: var(--mist); color: var(--accent-on-mist); }
+
+/* a plain "also look at" list for links without a full card */
+.minilist { list-style: none; margin: 0; padding: 0; }
+.minilist li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: .96rem;
+  color: var(--ink-soft);
+}
+.minilist li:last-child { border-bottom: 0; }
+.minilist strong { color: var(--ink); font-weight: 600; }
+
 /* ---------- Callout ---------- */
 
 .callout {
