@@ -229,6 +229,8 @@ p:last-child { margin-bottom: 0; }
 
 .hero-centered h1 { max-width: 18ch; margin-inline: auto; }
 .hero-centered .lede { margin-inline: auto; }
+/* consecutive hero ledes read as one passage, not separated blocks */
+.hero-centered .lede:has(+ .lede) { margin-bottom: 0.35em; }
 .hero-centered .hero-actions { justify-content: center; }
 
 /* on the tinted ground the standard accent is 4.09:1 — use the darker tone */
