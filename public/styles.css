@@ -344,7 +344,7 @@ p:last-child { margin-bottom: 0; }
 /* turquoise ground, logo above a white card — the mark overlaps the card edge */
 .mission {
   position: relative;
-  background: linear-gradient(165deg, var(--mist) 0%, #bfebed 48%, #d9f4f5 100%);
+  background: var(--white);
   border-bottom: 1px solid var(--border);
   padding: clamp(40px, 6vw, 68px) 0 clamp(52px, 7vw, 86px);
   overflow: hidden;
@@ -359,7 +359,7 @@ p:last-child { margin-bottom: 0; }
   width: min(760px, 95vw);
   aspect-ratio: 1;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 66%);
+  background: radial-gradient(circle, rgba(43,196,201,.10) 0%, rgba(43,196,201,0) 68%);
   pointer-events: none;
 }
 
@@ -375,7 +375,8 @@ p:last-child { margin-bottom: 0; }
 }
 
 .mission-card {
-  background: var(--white);
+  background: linear-gradient(165deg, var(--mist) 0%, #bfebed 52%, #d9f4f5 100%);
+  border: 1px solid #a9e2e5;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   max-width: 760px;
@@ -385,16 +386,17 @@ p:last-child { margin-bottom: 0; }
 
 .mission-card h2 {
   display: inline-block;
-  border-bottom: 3px solid var(--accent);
+  border-bottom: 3px solid var(--accent-on-mist);
   padding-bottom: .12em;
   margin-bottom: .7em;
   color: var(--ink);
 }
 
+/* on the mist tint the soft gray drops below AA — use full-strength ink */
 .mission-card p {
   font-size: clamp(1.08rem, 2vw, 1.28rem);
   line-height: 1.6;
-  color: var(--ink-soft);
+  color: var(--ink);
   margin: 0;
 }
 
