@@ -666,43 +666,6 @@ p:last-child { margin-bottom: 0; }
 
 .episode-body { padding: 30px; }
 
-/* ---------- Collapsible episodes ---------- */
-
-.episode-group > summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 24px 30px;
-  transition: background .18s ease;
-}
-.episode-group > summary::-webkit-details-marker { display: none; }
-.episode-group > summary:hover { background: var(--mist); }
-.episode-group > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
-
-.episode-head { flex: 1 1 auto; min-width: 0; }
-.episode-head .episode-meta,
-.episode-head .episode-affil { display: block; }
-.episode-head h3 { margin: 0 0 .2em; }
-.episode-head .episode-affil { margin-bottom: 0; }
-
-/* chevron, matching the Opportunities groups */
-.episode-group > summary::after {
-  content: "";
-  flex: none;
-  width: 11px;
-  height: 11px;
-  border-right: 2.5px solid var(--accent);
-  border-bottom: 2.5px solid var(--accent);
-  transform: rotate(-45deg);
-  transition: transform .18s ease;
-}
-.episode-group[open] > summary::after { transform: rotate(45deg); }
-
-.episode-group[open] > summary { border-bottom: 1px solid var(--border); }
-.episode-group .episode-body { padding-top: 26px; }
-
 .episode-meta {
   font-size: .8rem;
   font-weight: 700;
