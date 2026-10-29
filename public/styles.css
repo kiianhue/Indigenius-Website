@@ -780,6 +780,41 @@ details.questions li { margin-bottom: 9px; }
   color: var(--ink-soft);
 }
 
+/* ---------- Collapsible section groups (Opportunities) ---------- */
+
+.group { border: 0; }
+
+.group > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 4px 0;
+}
+.group > summary::-webkit-details-marker { display: none; }
+
+.group > summary h2 { margin: 0; }
+
+/* chevron rotates to point down when the group is open */
+.group > summary::after {
+  content: "";
+  flex: none;
+  width: 11px;
+  height: 11px;
+  margin-left: auto;
+  border-right: 2.5px solid var(--accent);
+  border-bottom: 2.5px solid var(--accent);
+  transform: rotate(-45deg);
+  transition: transform .18s ease;
+}
+.group[open] > summary::after { transform: rotate(45deg); }
+
+.group > summary:hover h2 { color: var(--accent-on-mist); }
+.group > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+
+.group-body { padding-top: 22px; }
+
 /* ---------- Jump navigation ---------- */
 
 .jumpnav {
