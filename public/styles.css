@@ -772,6 +772,14 @@ details.questions li { margin-bottom: 9px; }
 .tag.deadline { background: var(--mist); color: var(--accent-on-mist); }
 .tag.free { background: var(--accent); color: #fff; }
 
+/* Opportunities: every resource tag reads as one neutral set, no colour ranking */
+.resource-tags .tag,
+.resource-tags .tag.deadline,
+.resource-tags .tag.free {
+  background: var(--gray-200);
+  color: var(--ink-soft);
+}
+
 /* ---------- Jump navigation ---------- */
 
 .jumpnav {
