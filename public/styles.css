@@ -150,6 +150,85 @@ p:last-child { margin-bottom: 0; }
   cursor: pointer;
 }
 
+/* ---------- Nav dropdown (health fields) ---------- */
+
+.navitem { position: relative; display: flex; align-items: center; }
+
+/* the caret button is decorative on desktop (hover opens the menu) but is the
+   control on touch devices, where there is no hover */
+.navitem-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-left: -7px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.navitem-toggle::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid var(--ink-faint);
+  border-bottom: 2px solid var(--ink-faint);
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform .18s ease, border-color .18s ease;
+}
+.navitem:hover .navitem-toggle::after,
+.navitem-toggle[aria-expanded="true"]::after { border-color: var(--accent); }
+.navitem-toggle[aria-expanded="true"]::after { transform: rotate(225deg) translate(-2px, -2px); }
+.navitem-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+.submenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 232px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent-bright);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .16s ease, transform .16s ease, visibility .16s;
+  z-index: 50;
+}
+
+/* a hover bridge so the menu does not close while the cursor crosses the gap */
+.submenu::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0; right: 0;
+  height: 12px;
+}
+
+.navitem:hover .submenu,
+.navitem:focus-within .submenu,
+.navitem.is-open .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.submenu a {
+  font-size: .9rem;
+  padding: 9px 13px;
+  color: var(--ink-soft);
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.submenu a:hover { background: var(--mist); color: var(--accent-on-mist); }
+
 @media (max-width: 1000px) {
   .header-inner {
     grid-template-columns: auto 1fr;
@@ -177,6 +256,37 @@ p:last-child { margin-bottom: 0; }
   .nav a { padding: 12px 13px; }
   .site-header { position: relative; }
   .brand-logo { height: 52px; }
+
+  /* in the stacked mobile menu the submenu becomes an indented list, and hover
+     must not open it — only the caret button does */
+  .navitem { display: block; }
+  .navitem > a { display: block; }
+  .navitem-toggle {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+  }
+  .submenu {
+    position: static;
+    transform: none;
+    min-width: 0;
+    box-shadow: none;
+    border: 0;
+    border-left: 2px solid var(--mist);
+    border-radius: 0;
+    margin: 2px 0 6px 14px;
+    padding: 0 0 0 6px;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+  }
+  .navitem:hover .submenu,
+  .navitem:focus-within .submenu { display: none; }
+  .navitem.is-open .submenu { display: flex; transform: none; }
+  .submenu::before { display: none; }
 }
 
 @media (max-width: 520px) {
@@ -564,6 +674,255 @@ p:last-child { margin-bottom: 0; }
   .pillar { transition: background .18s ease; }
   .pillar:hover,
   .pillar:focus-within { transform: none; border-left-width: 3px; }
+}
+
+/* ---------- Field search (Exploring Healthcare) ---------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.fieldsearch {
+  position: relative;
+  max-width: 520px;
+  margin-bottom: 10px;
+}
+
+.fieldsearch input {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 13px 44px 13px 46px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.fieldsearch input::-webkit-search-cancel-button { display: none; }
+.fieldsearch input::placeholder { color: var(--ink-faint); }
+.fieldsearch input:focus {
+  outline: none;
+  border-color: var(--accent-bright);
+  box-shadow: 0 0 0 3px rgba(43, 196, 201, .22);
+}
+
+/* magnifier drawn in CSS — circle plus handle */
+.fieldsearch-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  width: 13px;
+  height: 13px;
+  margin-top: -8px;
+  border: 2px solid var(--ink-faint);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.fieldsearch-icon::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: -4px;
+  width: 7px;
+  height: 2px;
+  background: var(--ink-faint);
+  transform: rotate(45deg);
+}
+.fieldsearch input:focus ~ .fieldsearch-icon,
+.fieldsearch:focus-within .fieldsearch-icon { border-color: var(--accent); }
+.fieldsearch:focus-within .fieldsearch-icon::after { background: var(--accent); }
+
+.fieldsearch-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.fieldsearch-clear:hover { background: var(--gray-200); color: var(--ink); }
+
+.fieldsearch-count {
+  font-size: .88rem;
+  color: var(--ink-soft);
+  min-height: 1.3em;
+  margin: 0 0 20px;
+}
+
+.fieldsearch-empty {
+  color: var(--ink-soft);
+  background: var(--white);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  text-align: center;
+}
+
+/* ---------- Flip cards ---------- */
+
+.flipgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 22px;
+}
+
+.flip {
+  perspective: 1600px;
+  min-height: 430px;
+}
+
+.flip-inner {
+  position: relative;
+  height: 100%;
+  min-height: inherit;
+}
+
+/* Each face is rotated on its own rather than rotating a preserve-3d container —
+   container 3D is unevenly supported, per-face rotation is not. */
+.flip-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent-bright);
+  border-radius: var(--radius);
+  padding: 28px 26px 22px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  transition: transform .55s cubic-bezier(.3, .7, .3, 1), visibility 0s .28s;
+}
+
+.flip-front { transform: rotateY(0deg); visibility: visible; }
+.flip-back {
+  transform: rotateY(-180deg);
+  visibility: hidden;
+  border-top-color: var(--accent);
+  background: linear-gradient(170deg, var(--white) 0%, #f6fcfc 100%);
+}
+
+.flip.is-flipped .flip-front { transform: rotateY(180deg); visibility: hidden; }
+.flip.is-flipped .flip-back { transform: rotateY(0deg); visibility: visible; }
+
+.flip-kicker {
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.flip-front h3 { font-size: 1.45rem; margin-bottom: .45em; }
+.flip-back h4 {
+  font-size: 1.12rem;
+  margin-bottom: 1em;
+  color: var(--accent-on-mist);
+}
+
+.flip-overview {
+  color: var(--ink-soft);
+  font-size: .96rem;
+  margin-bottom: 20px;
+}
+
+/* back content scrolls inside the card rather than overflowing it */
+.flip-scroll {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-right: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+.flip-scroll::-webkit-scrollbar { width: 7px; }
+.flip-scroll::-webkit-scrollbar-thumb { background: var(--gray-200); border-radius: 99px; }
+
+.flip-label {
+  font-size: .74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--accent-on-mist);
+  margin: 18px 0 7px;
+}
+.flip-scroll > .flip-label:first-of-type { margin-top: 0; }
+
+.flip-scroll ul {
+  margin: 0;
+  padding-left: 19px;
+  color: var(--ink-soft);
+  font-size: .9rem;
+}
+.flip-scroll li { margin-bottom: 7px; line-height: 1.5; }
+.flip-scroll p { color: var(--ink-soft); font-size: .9rem; line-height: 1.55; margin: 0; }
+.flip-scroll strong { color: var(--ink); }
+
+.flip-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 9px 18px;
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--accent-on-mist);
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.flip-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.flip-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.flip-btn-back { margin-top: 16px; }
+
+/* chevrons */
+.flip-arrow {
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+.flip-arrow-back { transform: rotate(-135deg); }
+
+/* a card arrived at from the nav dropdown gets a brief ring */
+.flip.is-target .flip-face {
+  border-color: var(--accent-bright);
+  box-shadow: 0 0 0 3px rgba(43, 196, 201, .3);
+}
+
+@media (max-width: 420px) {
+  .flipgrid { grid-template-columns: 1fr; }
+  .flip { min-height: 470px; }
+  .flip-face { padding: 24px 20px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-face { transition: visibility 0s; }
 }
 
 /* ---------- Filters ---------- */

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Exploring Healthcare — Indigenius</title>
-<meta name="description" content="Twenty health professions explained plainly: what the work involves, the education path, and how long it takes.">
+<meta name="description" content="Eight health fields explained plainly: the pathway to entry, the skills each asks for, and what the work means for Native communities.">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="favicon.png">
@@ -20,7 +20,24 @@
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="index.html">Home</a>
-      <a href="exploring-healthcare.html" aria-current="page">Exploring Healthcare</a>
+      <div class="navitem">
+        <a href="exploring-healthcare.html" aria-current="page">Exploring Healthcare</a>
+        <button class="navitem-toggle" type="button" aria-expanded="false" aria-label="Show health fields"></button>
+        <div class="submenu">
+          <a href="exploring-healthcare.html#physician">Physician</a>
+          <a href="exploring-healthcare.html#nursing">Nursing</a>
+          <a href="exploring-healthcare.html#public-health">Public Health</a>
+          <a href="exploring-healthcare.html#chr">Community Health Representative</a>
+          <a href="exploring-healthcare.html#health-policy">Health Policy</a>
+          <a href="exploring-healthcare.html#social-work">Medical Social Work</a>
+          <a href="exploring-healthcare.html#psychology">Psychology</a>
+          <a href="exploring-healthcare.html#dentist">Dentist</a>
+          <a href="exploring-healthcare.html#physical-therapy">Physical Therapy</a>
+          <a href="exploring-healthcare.html#dietitian">Dietitian &amp; Nutritionist</a>
+          <a href="exploring-healthcare.html#research">Biomedical Research</a>
+          <a href="exploring-healthcare.html#veterinary">Veterinary Medicine</a>
+        </div>
+      </div>
       <a href="stories-and-voices.html">Stories &amp; Voices</a>
       <a href="opportunities.html">Opportunities &amp; Support</a>
       <a href="about.html">About</a>
@@ -34,232 +51,543 @@
     <div class="wrap">
       <p class="eyebrow">Section one</p>
       <h1>Exploring Healthcare</h1>
-      <p class="lede">Healthcare is much larger than becoming a doctor. Below are twenty professions, each with the real path into it — what the schooling takes and how long. Some take six years past high school. Some take two.</p>
+      <p class="lede">Healthcare is much larger than becoming a doctor. Each field below opens to show the real path into it &mdash; the schooling it takes, the qualities it asks for, and what it means for Native communities.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
 
-      <div class="filters">
-        <span class="filter-label">Time after high school</span>
-        <button class="chip" data-filter="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="short" aria-pressed="false">2 years or less</button>
-        <button class="chip" data-filter="mid" aria-pressed="false">About 4 years</button>
-        <button class="chip" data-filter="long" aria-pressed="false">6 years or more</button>
+      <div class="fieldsearch">
+        <label class="sr-only" for="fieldsearch">Search health fields</label>
+        <span class="fieldsearch-icon" aria-hidden="true"></span>
+        <input type="search" id="fieldsearch" placeholder="Search a field &mdash; nursing, policy, research&hellip;" autocomplete="off">
+        <button class="fieldsearch-clear" type="button" aria-label="Clear search" hidden>&times;</button>
+      </div>
+      <p class="fieldsearch-count" id="fieldcount" role="status" aria-live="polite"></p>
+
+      <div class="flipgrid" id="fields">
+
+        <article class="flip" id="physician" data-name="Physician" data-tags="doctor md do surgery psychiatry family medicine rural primary care residency mcat">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">MD / DO</p>
+              <h3>Physician</h3>
+              <p class="flip-overview">Physicians diagnose and treat illness, ranging from primary care and family medicine to specialized fields like surgery or psychiatry. In tribal communities, family and rural medicine physicians are especially critical given severe workforce shortages.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Physician</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li>4-year bachelor's degree with required pre-med coursework (biology, chemistry, physics, math), plus the MCAT.</li>
+                    <li>4-year medical school (MD or DO), including 2 years of coursework and 2 years of clinical rotations.</li>
+                    <li>3&ndash;7 years of residency depending on specialty, followed by board certification. Some pursue additional fellowship training.</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Resilience: the path is long, and setbacks are part of the process.</li>
+                    <li>Strong scientific reasoning combined with communication skills and empathy.</li>
+                    <li>Cultural competence and humility, especially critical for physicians serving communities with historical trauma tied to Western medicine.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>The shortage of physicians willing and trained to serve tribal communities is severe. Indian health facilities report vacancy rates around 25% for physicians, nurses, and other health professionals. Because AI/AN populations face disproportionately high rates of diabetes, heart disease, and other chronic conditions, this shortage has outsized consequences. Native physicians who return to serve their own communities can rebuild the trust eroded by generations of external, short-term providers; as one tribal physician who returned home to practice put it, being Native and being a doctor aren't in conflict &mdash; you don't have to give up your identity to gain an education, you build on it.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="flip" id="nursing" data-name="Nursing" data-tags="nurse rn bsn adn nclex nurse practitioner midwife anesthetist msn dnp bedside">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">RN, NP, CNM, CRNA</p>
+              <h3>Nursing</h3>
+              <p class="flip-overview">Nurses are often the first and most consistent point of contact patients have with the healthcare system, providing direct care, patient education, and coordination across a person's treatment. Paths range from a Registered Nurse (RN) to advanced practice roles like Nurse Practitioner (NP), which allow nurses to diagnose, prescribe, and manage care independently in many states.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Nursing</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li><strong>RN:</strong> Associate Degree in Nursing (ADN, ~2 years) or Bachelor of Science in Nursing (BSN, ~4 years), followed by passing the NCLEX-RN licensing exam.</li>
+                    <li><strong>Advanced practice (NP, CNM, CRNA):</strong> A Master's (MSN) or Doctor of Nursing Practice (DNP) after the BSN, plus national certification in a specialty (family, pediatric, psychiatric, women's health, etc.).</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Strong communication and empathy &mdash; nurses spend more direct time with patients than almost any other role.</li>
+                    <li>Composure under pressure and sharp clinical judgment.</li>
+                    <li>Cultural humility, especially important when working across diverse communities with distinct health beliefs and practices.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>Nursing is one of the highest-need fields in Indian Country. The Indian Health Service runs a dedicated Nursing Grant Program aimed specifically at training more AI/AN nurses, nurse midwives, nurse anesthetists, and nurse practitioners to serve their own communities, and nurses are eligible for loan repayment through both IHS and HRSA's Nursing Education Loan Repayment Program because of critical shortages at Indian health facilities. Because nurses are often the ones building long-term relationships with patients, Native nurses can play an outsized role in rebuilding trust in a healthcare system many communities have historically had reason to distrust.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="flip" id="public-health" data-name="Public Health" data-tags="epidemiology mph health education program administration tribal health prevention population">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">MPH, DrPH</p>
+              <h3>Public Health</h3>
+              <p class="flip-overview">Public health professionals work at the population level &mdash; designing programs, studying disease patterns, and shaping policy to prevent illness before it starts, rather than treating it after the fact. This field spans epidemiology, health education, program administration, and tribal health systems work.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Public Health</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li>4-year bachelor's degree (any related field works, including biology, sociology, or health sciences).</li>
+                    <li>Master of Public Health (MPH, ~2 years), often with a concentration like epidemiology, health policy, or community health.</li>
+                    <li>Some roles (especially research- or leadership-focused) require a doctoral degree (PhD or DrPH).</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Comfort with data and pattern-recognition at a community or population scale.</li>
+                    <li>Strong communication skills for translating research into practical programs.</li>
+                    <li>A community-first mindset. The best public health work is shaped by the people it serves.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>Because of the Indian Self-Determination and Education Assistance Act, over half of the Indian Health Service budget is now managed directly by tribes rather than the federal government, meaning public health professionals working in Indian Country often have real authority to design programs that fit their community's specific needs. Programs like the CDC's Traditional Foods Project have shown how public health work rooted in tribal knowledge and food sovereignty can directly reduce rates of chronic disease. Public health careers are especially valuable for students who want to address the root causes of health disparities, like underfunded schools or lack of access to care, rather than only treating individual patients.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="flip" id="chr" data-name="Community Health Representative" data-tags="chr community health representative outreach home visits tribal public health community health worker paraprofessional">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">CHR</p>
+              <h3>Community Health Representative</h3>
+              <p class="flip-overview">Community Health Representatives are tribal community members trained to deliver health care and health education directly in their own communities &mdash; visiting homes, checking vital signs, coordinating transportation, following up after hospital stays, and bridging patients to the clinic. CHRs are often the most trusted health worker a family deals with, because they are from the community they serve.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Community Health Representative</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li>A high school diploma or equivalent is the usual starting point &mdash; this is the most accessible entry into health care on this page, and requires no college degree.</li>
+                    <li>Hiring is through a tribe or tribal organization, since CHR programs are IHS-funded but tribally contracted and directed.</li>
+                    <li>Completion of the required IHS CHR training (the basic course, CHR I: Foundations, is built on national Community Health Worker core standards), then at least 20 hours of continuing education every two years.</li>
+                    <li>CHRs work under close supervision by a licensed health professional, and many use the role as a first step toward nursing, public health, or social work.</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Deep roots in and knowledge of the community &mdash; this is the qualification the job is built on.</li>
+                    <li>Reliability and discretion, since the work happens in people's homes and involves private health information.</li>
+                    <li>Practical problem-solving: arranging a ride, following up on a missed appointment, noticing when something at home has changed.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>The CHR Program was established by Congress in 1968 and is one of the oldest community health worker programs in the United States &mdash; built on the premise that care delivered by community members themselves reaches people that clinic-based care does not. CHR duties span vital signs, case management, patient advocacy, motivational interviewing, wound and foot care, and home safety assessments, which makes CHRs central to chronic disease management in communities facing high rates of diabetes and heart disease. Because programs are tribally directed, a tribal governing body can expand the role beyond the national standards to fit what its community actually needs. For students who want to work in health care without first leaving home for years of schooling, this is the most direct path there is.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="flip" id="health-policy" data-name="Health Policy" data-tags="policy law jd mpp government tribal sovereignty advocacy regulation legislation medicaid">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">MPH, MPP, JD</p>
+              <h3>Health Policy</h3>
+              <p class="flip-overview">Health policy professionals shape the laws, funding structures, and regulations that determine how healthcare actually gets delivered, working in government, tribal organizations, nonprofits, or research institutions. This field is a strong fit for students who want systemic, large-scale impact.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Health Policy</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li>4-year bachelor's degree, often in political science, public health, economics, or a related field.</li>
+                    <li>Master's degree (MPH, MPP, or JD) is common for advancing into policy analysis or leadership roles; a law degree opens doors to legal/regulatory work specifically.</li>
+                    <li>Experience is often built through internships with tribal health departments, federal agencies (like IHS), or advocacy organizations.</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Strong analytical and writing skills. Policy work often means translating complex research into clear recommendations.</li>
+                    <li>Political and cultural literacy, especially understanding of tribal sovereignty and the unique legal relationship between tribes and the federal government.</li>
+                    <li>Persistence, since policy change is often slow and requires sustained advocacy.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>Health policy in Indian Country is shaped by a unique legal foundation: tribes are sovereign nations with a government-to-government relationship with the U.S., established through treaties and reinforced by laws like the Indian Self-Determination and Education Assistance Act and the Indian Health Care Improvement Act. These laws gave tribes the option to take over management of their own health programs rather than have them run entirely by the federal government, and today nearly 60% of federally recognized tribes participate in this kind of self-governance. Native health policy professionals play a critical role in expanding this sovereignty further. For example, current advocacy priorities include seeking reimbursement for traditional healing practices through Medicare and Medicaid, something current policy still largely excludes.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="flip" id="social-work" data-name="Medical Social Work" data-tags="social work msw lcsw counseling behavioral health historical trauma case management advocacy">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">MSW, LCSW</p>
+              <h3>Medical Social Work</h3>
+              <p class="flip-overview">Medical social workers help patients and families navigate the emotional, financial, and logistical challenges that come with illness, connecting people to resources, providing counseling, and advocating within the healthcare system. In tribal communities, this role often extends into addressing historical trauma and systemic barriers to care.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Medical Social Work</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li>4-year bachelor's degree (a BSW is helpful but not always required).</li>
+                    <li>2-year Master of Social Work (MSW) program with a clinical/healthcare focus, including supervised field placements.</li>
+                    <li>State licensure as an LCSW (Licensed Clinical Social Worker), which requires supervised post-graduate clinical hours and a licensing exam.</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Deep empathy and active listening.</li>
+                    <li>Comfort holding space for grief, crisis, and complex family dynamics.</li>
+                    <li>Systems-thinking, knowing how to connect a patient to the right resource, program, or specialist.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>Historical trauma &mdash; rooted in forced relocation, boarding schools, and generations of cultural disruption &mdash; is now recognized as a major driver of behavioral health disparities in Native communities today. Native social workers who understand this context can approach care very differently than external providers. Native-led approaches increasingly combine social work with traditional healing practices &mdash; ceremony, elders, and community gathering &mdash; rather than relying solely on Western clinical models, which tend to be less trusted given the history involved.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="flip" id="psychology" data-name="Psychology" data-tags="psychologist psychology phd psyd mental health therapy counseling behavioral trauma internship clinical">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">PhD / PsyD</p>
+              <h3>Psychology</h3>
+              <p class="flip-overview">Psychologists assess and treat mental health conditions through therapy, psychological testing, and research. Clinical psychologists see patients directly; others work in schools, courts, hospitals, or research settings. The field spans everything from childhood development to trauma, addiction, and chronic illness.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Psychology</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li>4-year bachelor's degree, commonly in psychology, with research or clinical experience.</li>
+                    <li>Doctoral degree &mdash; a PhD (research-weighted, usually funded) or PsyD (practice-weighted), typically 5&ndash;7 years including a dissertation and a full-year supervised clinical internship.</li>
+                    <li>Postdoctoral supervised hours and the Examination for Professional Practice in Psychology (EPPP) for state licensure.</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Deep listening and the ability to sit with distress without rushing to fix it.</li>
+                    <li>Rigorous, careful thinking &mdash; diagnosis and psychological testing demand precision.</li>
+                    <li>Cultural grounding, since the meaning of distress, healing, and family is not the same across communities.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>Native psychologists are among the rarest providers in the country. Estimates put the total number of American Indian and Alaska Native psychologists somewhere around 200&ndash;300 nationally, serving a population of several million, and the University of North Dakota &mdash; the leading training program &mdash; has produced roughly 30 Native psychologists over 30 years. Rural areas have about 9 psychologists per 100,000 people compared with 33 in cities. Meanwhile the need is acute: suicide rates among AI/AN adolescents run more than double those of white adolescents, and historical trauma from relocation and boarding schools continues to shape behavioral health today. Native psychologists are increasingly combining clinical training with traditional healing &mdash; ceremony, elders, and community gathering &mdash; rather than applying Western models alone to communities with good reason to distrust them.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="flip" id="dentist" data-name="Dentist" data-tags="dentist dental dds dmd oral health teeth hygienist dat residency dental therapist dhat">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">DDS / DMD</p>
+              <h3>Dentist</h3>
+              <p class="flip-overview">Dentists diagnose and treat conditions of the teeth, gums, and mouth &mdash; filling cavities, performing extractions and oral surgery, and catching disease early. Oral health is tied directly to overall health, and untreated dental disease affects nutrition, school attendance, chronic disease, and self-confidence.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Dentist</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li>4-year bachelor's degree with pre-dental coursework (biology, chemistry, organic chemistry, physics), plus the Dental Admission Test (DAT).</li>
+                    <li>4-year dental school (DDS or DMD), combining classroom science with supervised clinical practice on patients.</li>
+                    <li>National and state board examinations for licensure. Specialties like orthodontics, pediatric dentistry, or oral surgery require an additional 2&ndash;6 year residency.</li>
+                    <li><strong>A shorter route exists in tribal health:</strong> Dental Health Aide Therapists (DHATs) complete roughly two to three years of training, often through Iḷisaġvik College, and provide cleanings, fillings, and extractions in their own communities under a dentist's remote supervision.</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Strong manual dexterity and patience for precise, detailed work in a very small space.</li>
+                    <li>A steady, reassuring manner &mdash; dental anxiety is common, and much of the job is helping people feel safe enough to be treated.</li>
+                    <li>Prevention-minded thinking, since most dental disease is preventable and the work is as much education as repair.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>Oral health is one of the widest health gaps in Indian Country. In Indian Health Service surveys, more than 43% of AI/AN children aged 3&ndash;5 had untreated tooth decay, about four times the rate of white non-Hispanic children, and among 6&ndash;9 year-olds the figure was 47% against 17% nationally. Geographic isolation is a major cause: millions of AI/AN people live in counties designated as dental care shortage areas, and in 2014 fewer than 30% accessed dental care at all. Tribes have responded by building their own workforce. Alaska authorized dental therapy in 2005, the first state to do so, and the DHAT program has since extended care to more than 40,000 Alaska Native people across 81 rural communities &mdash; training providers from the villages they serve rather than waiting for outside dentists to arrive.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="flip" id="physical-therapy" data-name="Physical Therapy" data-tags="physical therapist dpt rehabilitation rehab mobility injury recovery amputation diabetes movement sports">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">DPT</p>
+              <h3>Physical Therapy</h3>
+              <p class="flip-overview">Physical therapists help people restore movement and manage pain after injury, surgery, stroke, or chronic illness. The work is hands-on and relationship-driven: building a recovery plan, coaching patients through it over weeks or months, and often preventing a disability from becoming permanent.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Physical Therapy</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li>4-year bachelor's degree with prerequisite coursework (anatomy, physiology, biology, chemistry, physics, statistics), plus observation hours in a clinic.</li>
+                    <li>3-year Doctor of Physical Therapy (DPT) program accredited by CAPTE, including classroom work and full-time clinical rotations.</li>
+                    <li>Passing the National Physical Therapy Examination (NPTE) and meeting your state's licensure requirements, which in some states include a separate jurisprudence exam.</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Comfort with hands-on, physical work and a good eye for how a body moves.</li>
+                    <li>Motivational patience &mdash; recovery is slow, and much of the job is keeping someone committed to difficult exercises over months.</li>
+                    <li>Teaching ability, since patients do most of the work themselves between visits.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>Rehabilitation is one of the services hardest to reach from a rural reservation, where the nearest specialty care may be hours away. The Indian Health Service runs physical rehabilitation services at more than 50 clinical sites with over 136 physical therapy staff, specifically so that patients are not left without rehabilitative care within a reasonable travel distance. The need is tied closely to diabetes: IHS rehabilitation programs include wound care, specialty foot care, amputee rehabilitation, and shoe and brace clinics that fit custom diabetic footwear, prostheses, and braces. Because AI/AN adults are diagnosed with diabetes at roughly twice the rate of white adults, therapists working in Indian Country spend much of their time on the complications that follow &mdash; and on the exercise and prevention programs that keep people from reaching that point.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="flip" id="dietitian" data-name="Dietitian and Nutritionist" data-tags="dietitian nutritionist rdn nutrition food sovereignty diabetes traditional foods dpd internship">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">RD / RDN</p>
+              <h3>Dietitian &amp; Nutritionist</h3>
+              <p class="flip-overview">Registered Dietitians and Nutritionists (RD/RDNs) help people manage and prevent disease through food and nutrition, designing meal plans, counseling patients, and running community nutrition education programs.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Dietitian &amp; Nutritionist</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li>Bachelor's degree in nutrition, dietetics, or a related field, including an accredited didactic program in dietetics (DPD).</li>
+                    <li>A supervised practice program (dietetic internship, ~6&ndash;12 months), which is increasingly paired with a master's degree.</li>
+                    <li>Passing the Registered Dietitian Nutritionist (RDN) exam through the Commission on Dietetic Registration.</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Genuine interest in food, culture, and how they intersect with health.</li>
+                    <li>Patience and non-judgmental counseling skills. Dietary change is difficult and personal.</li>
+                    <li>Cultural flexibility, since &ldquo;healthy eating&rdquo; looks different across communities and traditions.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>Type 2 diabetes was rare in AI/AN communities before the 1940s; today, AI/AN adults are diagnosed with diabetes at roughly twice the rate of white adults, with some communities reporting rates as high as 60%. Much of this shift traces back to the loss of traditional food systems. In response, tribes across the country are leading a food sovereignty movement, reclaiming traditional foods like corn, beans, wild rice, and lean game as both cultural practice and medicine. Native dietitians are uniquely positioned to bridge modern nutrition science with this traditional knowledge, rather than imposing outside dietary standards that don't reflect a community's food history or values.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="flip" id="research" data-name="Biomedical Research" data-tags="phd research scientist laboratory academia postdoc epidemiology dissertation nih principal investigator">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">PhD</p>
+              <h3>Biomedical Research</h3>
+              <p class="flip-overview">PhD researchers generate the scientific knowledge that shapes medicine and public health &mdash; studying disease mechanisms, testing treatments, and evaluating what actually works for specific populations. Many go on to careers in academia, government research agencies, or industry work.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Biomedical Research</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li>4-year bachelor's degree, often in a biological or health science, ideally including undergraduate research experience.</li>
+                    <li>4&ndash;6 year PhD program (in fields like biomedical sciences, epidemiology, public health, or a related discipline), which includes coursework, lab or field research, and a dissertation.</li>
+                    <li>Many pursue a postdoctoral position (2&ndash;5 years) afterward before moving into a permanent faculty or research role.</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Deep curiosity and patience. Research often involves years of work before a clear result.</li>
+                    <li>Strong writing and quantitative/analytical skills.</li>
+                    <li>Persistence, since experiments and grant applications frequently don't succeed on the first attempt.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>Native scientists remain the most underrepresented group in biomedical research, particularly in principal investigator roles. Nationally, underrepresented minorities including Native Americans receive nearly 13% of biomedical PhDs awarded to U.S. citizens, but receive fewer than 5% of NIH research grants and hold under 2% of tenure-track basic science faculty positions at U.S. medical schools &mdash; showing that the gap isn't just about earning the degree, but about who gets the resources to keep doing research afterward. Programs like the Northwest Native American Research Center for Health exist specifically to train AI/AN researchers who can study health disparities from within their own communities, rather than having outside researchers define the questions. Native-led research is often more trusted, more relevant, and better able to combine traditional knowledge with modern scientific methods.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="flip" id="veterinary" data-name="Veterinary Medicine" data-tags="veterinarian dvm animals livestock ranching zoonotic one health navle food sovereignty">
+          <div class="flip-inner">
+
+            <div class="flip-face flip-front">
+              <p class="flip-kicker">DVM</p>
+              <h3>Veterinary Medicine</h3>
+              <p class="flip-overview">Veterinarians care for animal health, but in many tribal communities, this work extends far beyond pets. It touches food sovereignty (livestock, ranching), public health (zoonotic disease, rabies control), and cultural life, since animals hold deep spiritual and relational significance in Native communities.</p>
+              <button class="flip-btn" type="button" aria-expanded="false">
+                <span>See the path in</span>
+                <span class="flip-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-scroll">
+                <h4>Veterinary Medicine</h4>
+
+                <p class="flip-label">Pathway to entry</p>
+                <ul>
+                    <li>4-year bachelor's degree (pre-veterinary track with heavy biology/chemistry coursework), followed by a 4-year Doctor of Veterinary Medicine (DVM) program.</li>
+                    <li>Many students gain experience beforehand through animal shelters, ranches, or veterinary clinics.</li>
+                    <li>Licensure requires passing the North American Veterinary Licensing Examination (NAVLE).</li>
+                </ul>
+
+                <p class="flip-label">Key skills &amp; qualities</p>
+                <ul>
+                    <li>Hands-on comfort and love working with animals of all kinds, from companion pets to livestock.</li>
+                    <li>Problem-solving under uncertainty (animals can't describe their symptoms).</li>
+                    <li>An interest in &ldquo;One Health&rdquo; &mdash; the idea that human, animal, and environmental health are deeply connected.</li>
+                </ul>
+
+                <p class="flip-label">Impact on Native communities</p>
+                <p>Veterinary care is severely lacking on many reservations, where poverty and geographic isolation make regular access difficult. Many Native veterinarians describe this gap as one of the biggest barriers to the profession: a major barrier for Native Americans joining the field is limited exposure to veterinary medicine growing up, since most Native communities are rural and under-served, leaving few opportunities to see a veterinarian who could serve as a role model. At the same time, animals hold unique cultural weight. Groups like Natives in VetMed are now building national support networks and running free clinics on reservations, showing how the field is directly tied to community wellbeing, tradition, and reciprocity.</p>
+              </div>
+              <button class="flip-btn flip-btn-back" type="button">
+                <span class="flip-arrow flip-arrow-back" aria-hidden="true"></span>
+                <span>Back</span>
+              </button>
+            </div>
+
+          </div>
+        </article>
+
       </div>
 
-      <div class="grid grid-2" id="careers">
-
-        <!-- ===== 2 years or less ===== -->
-
-        <article class="career" data-length="short">
-          <h3>Dental Hygienist</h3>
-          <span class="career-tag">2–3 years</span>
-          <p>Cleans teeth, screens for oral disease, takes X-rays, and teaches patients how to care for their mouths. Oral health is one of the largest untreated needs in Indian Country, and hygienists are often the first to catch a problem.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Associate degree in dental hygiene, then a state licensing exam</dd></div>
-            <div><dt>Length</dt><dd>About 3 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="short">
-          <h3>Respiratory Therapist</h3>
-          <span class="career-tag">2 years</span>
-          <p>Treats people who cannot breathe well — asthma, COPD, premature infants, patients on ventilators. Respiratory therapists were on the front line of the pandemic and remain in short supply in rural and tribal hospitals.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Associate degree, though a bachelor's is increasingly preferred</dd></div>
-            <div><dt>Length</dt><dd>2–4 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="short">
-          <h3>Community Health Representative</h3>
-          <span class="career-tag">Entry level</span>
-          <p>Connects people to care, follows up with patients at home, runs prevention programs, and translates between a clinic and the community it serves. The Community Health Representative program is tribally run and one of the most direct ways to serve your own nation. Many people start here and go further.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>High school diploma plus on-the-job training or a certificate</dd></div>
-            <div><dt>Length</dt><dd>Under 1 year to start</dd></div>
-          </dl>
-        </article>
-
-        <!-- ===== About 4 years ===== -->
-
-        <article class="career" data-length="mid">
-          <h3>Registered Nurse</h3>
-          <span class="career-tag t-mid">4 years</span>
-          <p>The backbone of nearly every hospital and clinic. Nurses assess patients, give treatments, and spend more time at the bedside than anyone else. Only 0.4% of nurses in this country identify as Native American — a gap felt in every tribal clinic.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>BSN (4 years) or ADN (2 years), then the NCLEX-RN exam</dd></div>
-            <div><dt>Length</dt><dd>2–4 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="mid">
-          <h3>Social Worker</h3>
-          <span class="career-tag t-mid">4–6 years</span>
-          <p>Works with families in crisis, in hospitals, schools, behavioral health, and child welfare. Indian Child Welfare Act cases, substance use, and intergenerational trauma all run through this profession, and 0.8% of social workers are Native.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>BSW for entry roles; MSW (2 more years) for clinical licensure</dd></div>
-            <div><dt>Length</dt><dd>4–6 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="mid">
-          <h3>Health Education Specialist</h3>
-          <span class="career-tag t-mid">4 years</span>
-          <p>Designs and runs the programs that keep people from getting sick in the first place — diabetes prevention, tobacco cessation, youth wellness, vaccination drives. Often the most culturally grounded work in a tribal health department.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's in health education or public health; CHES certification common</dd></div>
-            <div><dt>Length</dt><dd>4 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="mid">
-          <h3>Clinical Laboratory Scientist</h3>
-          <span class="career-tag t-mid">4 years</span>
-          <p>Runs the tests that diagnoses depend on — blood work, cultures, tissue samples. Quiet, technical, essential work, and a strong fit for students who love science but are unsure about patient-facing roles.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's in medical laboratory science (associate for technician roles)</dd></div>
-            <div><dt>Length</dt><dd>2–4 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="mid">
-          <h3>Dietitian / Nutritionist</h3>
-          <span class="career-tag t-mid">5–6 years</span>
-          <p>Uses food to prevent and treat disease. Given the rates of diabetes and heart disease in AI/AN communities, dietitians who understand traditional foods and food sovereignty are urgently needed.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's plus a master's (required for new RDs), plus supervised practice</dd></div>
-            <div><dt>Length</dt><dd>About 6 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="mid">
-          <h3>Health Services Manager</h3>
-          <span class="career-tag t-mid">4–6 years</span>
-          <p>Runs clinics, departments, and tribal health programs — budgets, staffing, contracts, and strategy. Self-governance means tribes increasingly run their own health systems, and they need their own people managing them.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's; a master's (MHA, MPH, MBA) is common for senior roles</dd></div>
-            <div><dt>Length</dt><dd>4–6 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <!-- ===== 6+ years ===== -->
-
-        <article class="career" data-length="long">
-          <h3>Physician (MD / DO)</h3>
-          <span class="career-tag t-long">11+ years</span>
-          <p>Diagnoses and treats illness, and in tribal communities often serves as surgeon, emergency physician, and primary care provider at once. Just 0.3% of attending physicians are AI/AN. The path is long, and thousands of Native people have walked it.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's → MCAT → 4 years medical school → 3–7 years residency</dd></div>
-            <div><dt>Length</dt><dd>11–15 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="long">
-          <h3>Nurse Practitioner</h3>
-          <span class="career-tag t-long">6–8 years</span>
-          <p>Diagnoses, treats, and prescribes much as a physician does, with a nursing foundation. In many rural and tribal clinics the NP is the primary provider. One of the fastest-growing professions in the country.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>BSN → RN licensure → MSN or DNP</dd></div>
-            <div><dt>Length</dt><dd>6–8 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="long">
-          <h3>Physician Assistant</h3>
-          <span class="career-tag t-long">6–7 years</span>
-          <p>Examines patients, orders tests, prescribes, and assists in surgery, working with a physician. A shorter route than medical school to much of the same clinical work, and PAs can move between specialties.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's plus a 2–3 year master's program, then the PANCE exam</dd></div>
-            <div><dt>Length</dt><dd>6–7 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="long">
-          <h3>Pharmacist</h3>
-          <span class="career-tag t-long">6–8 years</span>
-          <p>Dispenses and manages medications, counsels patients, and catches dangerous drug interactions. In small tribal communities the pharmacist is often the most accessible health professional a person sees all year.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>2–4 years of prerequisites, then a 4-year PharmD</dd></div>
-            <div><dt>Length</dt><dd>6–8 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="long">
-          <h3>Dentist</h3>
-          <span class="career-tag t-long">8 years</span>
-          <p>Diagnoses and treats disease of the teeth, gums, and mouth. Untreated dental disease is one of the starkest health disparities in Indian Country, and IHS dental vacancies are persistent.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's → DAT → 4 years of dental school (DDS or DMD)</dd></div>
-            <div><dt>Length</dt><dd>8 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="long">
-          <h3>Physical Therapist</h3>
-          <span class="career-tag t-long">7 years</span>
-          <p>Restores movement after injury, surgery, or stroke. Deeply hands-on work built on relationships with patients over weeks and months.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's plus a 3-year Doctor of Physical Therapy (DPT)</dd></div>
-            <div><dt>Length</dt><dd>7 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="long">
-          <h3>Occupational Therapist</h3>
-          <span class="career-tag t-long">6–7 years</span>
-          <p>Helps people do the things their lives require — dressing, writing, working, playing — after injury, illness, or developmental difference. Heavy focus on children and elders.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's plus a master's or doctorate in occupational therapy</dd></div>
-            <div><dt>Length</dt><dd>6–7 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="long">
-          <h3>Speech-Language Pathologist</h3>
-          <span class="career-tag t-long">6 years</span>
-          <p>Treats speech, language, and swallowing disorders in children and adults. SLPs who understand Native language revitalization and bilingual development are exceptionally rare and badly needed in tribal schools.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's plus a master's in speech-language pathology, plus clinical fellowship</dd></div>
-            <div><dt>Length</dt><dd>About 6 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="long">
-          <h3>Psychologist</h3>
-          <span class="career-tag t-long">8–12 years</span>
-          <p>Provides therapy, assessment, and research on mental health. Historical trauma, suicide, and substance use are among the most pressing issues facing Native youth, and culturally grounded Native psychologists are scarce.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's → PhD or PsyD → supervised hours → state licensure</dd></div>
-            <div><dt>Length</dt><dd>8–12 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="long">
-          <h3>Epidemiologist</h3>
-          <span class="career-tag t-long">6 years</span>
-          <p>Investigates why disease shows up where it does and what stops it. Tribal epidemiology centers use this work to make the case for funding, policy, and data sovereignty — the right of nations to control data about their own people.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's plus a Master of Public Health or equivalent</dd></div>
-            <div><dt>Length</dt><dd>About 6 years after high school</dd></div>
-          </dl>
-        </article>
-
-        <article class="career" data-length="long">
-          <h3>Veterinarian</h3>
-          <span class="career-tag t-long">8 years</span>
-          <p>Cares for animals, and in rural and reservation settings often guards human health too — rabies, livestock disease, and food safety all sit with the vet. Reservation communities frequently have no veterinary access at all.</p>
-          <dl class="career-facts">
-            <div><dt>Degree</dt><dd>Bachelor's plus a 4-year Doctor of Veterinary Medicine (DVM)</dd></div>
-            <div><dt>Length</dt><dd>8 years after high school</dd></div>
-          </dl>
-        </article>
-
-      </div>
-
-      <p class="source-note">Education requirements and program lengths are drawn from the U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/ooh/healthcare/">Occupational Outlook Handbook</a> (May 2025). Requirements vary by state; always confirm with the licensing board and the programs themselves.</p>
+      <p class="fieldsearch-empty" id="fieldempty" hidden>No field matches that search. Try a broader word &mdash; &ldquo;nurse,&rdquo; &ldquo;policy,&rdquo; &ldquo;food,&rdquo; &ldquo;animals.&rdquo;</p>
 
       <div class="callout">
         <h3>You do not have to pick one today</h3>
@@ -311,18 +639,103 @@
     t.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  var chips = document.querySelectorAll('.chip');
-  var cards = document.querySelectorAll('#careers .career');
-  chips.forEach(function (chip) {
-    chip.addEventListener('click', function () {
-      chips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
-      chip.setAttribute('aria-pressed', 'true');
-      var f = chip.dataset.filter;
-      cards.forEach(function (card) {
-        card.hidden = !(f === 'all' || card.dataset.length === f);
-      });
+  // Health-fields dropdown: hover opens it on desktop (CSS); the caret button is
+  // the control for touch and keyboard users.
+  document.querySelectorAll('.navitem').forEach(function (item) {
+    var btn = item.querySelector('.navitem-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = item.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        item.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
     });
   });
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.navitem.is-open').forEach(function (item) {
+      if (item.contains(e.target)) return;
+      item.classList.remove('is-open');
+      var b = item.querySelector('.navitem-toggle');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ---------- Flip cards ----------
+  var fields = Array.prototype.slice.call(document.querySelectorAll('#fields .flip'));
+
+  function setFlipped(card, on) {
+    card.classList.toggle('is-flipped', on);
+    var front = card.querySelector('.flip-front .flip-btn');
+    if (front) front.setAttribute('aria-expanded', on ? 'true' : 'false');
+    // keep the hidden face out of the tab order
+    card.querySelectorAll('.flip-front button').forEach(function (b) { b.tabIndex = on ? -1 : 0; });
+    card.querySelectorAll('.flip-back button, .flip-back a').forEach(function (b) { b.tabIndex = on ? 0 : -1; });
+  }
+
+  fields.forEach(function (card) {
+    setFlipped(card, false);
+    card.querySelectorAll('.flip-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setFlipped(card, !card.classList.contains('is-flipped'));
+      });
+    });
+    // Esc closes a flipped card
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && card.classList.contains('is-flipped')) {
+        setFlipped(card, false);
+        var b = card.querySelector('.flip-front .flip-btn');
+        if (b) b.focus();
+      }
+    });
+  });
+
+  // ---------- Search ----------
+  var input = document.getElementById('fieldsearch');
+  var count = document.getElementById('fieldcount');
+  var empty = document.getElementById('fieldempty');
+  var clear = document.querySelector('.fieldsearch-clear');
+
+  function runSearch() {
+    var q = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+    fields.forEach(function (card) {
+      var hay = (card.dataset.name + ' ' + card.dataset.tags + ' ' +
+                 card.querySelector('.flip-kicker').textContent).toLowerCase();
+      var hit = !q || hay.indexOf(q) !== -1;
+      card.hidden = !hit;
+      if (hit) shown++; else setFlipped(card, false);
+    });
+    empty.hidden = shown !== 0;
+    count.textContent = q ? (shown + (shown === 1 ? ' field' : ' fields') + ' matching “' + input.value.trim() + '”') : '';
+    clear.hidden = !q;
+  }
+
+  if (input) {
+    input.addEventListener('input', runSearch);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { input.value = ''; runSearch(); }
+    });
+    clear.addEventListener('click', function () { input.value = ''; runSearch(); input.focus(); });
+  }
+
+  // ---------- Deep links from the nav dropdown ----------
+  function openFromHash() {
+    if (!location.hash) return;
+    var card = document.getElementById(location.hash.slice(1));
+    if (!card || !card.classList.contains('flip')) return;
+    if (input && input.value) { input.value = ''; runSearch(); }
+    card.scrollIntoView({ block: 'center' });
+    card.classList.add('is-target');
+    setTimeout(function () { card.classList.remove('is-target'); }, 1600);
+  }
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
 </script>
 
 </body>
