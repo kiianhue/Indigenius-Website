@@ -816,6 +816,46 @@ details.questions li { margin-bottom: 9px; }
   border-radius: var(--radius);
   padding: 24px 26px;
   margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.resource-main { flex: 1 1 auto; min-width: 0; }
+
+/* logo sits in its own column on the right; the monogram is the fallback
+   when no file exists at img/logos/<slug>.(svg|png|jpg) */
+.resource-logo {
+  flex: none;
+  width: 118px;
+  height: 118px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.resource-logo img {
+  /* --logo-scale lets a single mark be nudged up without resizing the column */
+  max-width: calc(100% * var(--logo-scale, 1));
+  max-height: calc(100% * var(--logo-scale, 1));
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.resource-logo[data-logo="questbridge"] { --logo-scale: 1.22; }
+.resource-logo .monogram {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--accent);
+}
+
+@media (max-width: 620px) {
+  .resource { gap: 16px; }
+  .resource-logo { width: 76px; height: 76px; }
+  .resource-logo .monogram { font-size: 1.05rem; }
 }
 .resource h3 { font-size: 1.14rem; margin-bottom: .3em; }
 .resource h3 a { text-decoration: none; }
