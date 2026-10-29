@@ -150,84 +150,6 @@ p:last-child { margin-bottom: 0; }
   cursor: pointer;
 }
 
-/* ---------- Nav dropdown (health fields) ---------- */
-
-.navitem { position: relative; display: flex; align-items: center; }
-
-/* the caret button is decorative on desktop (hover opens the menu) but is the
-   control on touch devices, where there is no hover */
-.navitem-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  margin-left: -7px;
-  padding: 0;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-.navitem-toggle::after {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-right: 2px solid var(--ink-faint);
-  border-bottom: 2px solid var(--ink-faint);
-  transform: rotate(45deg) translate(-1px, -1px);
-  transition: transform .18s ease, border-color .18s ease;
-}
-.navitem:hover .navitem-toggle::after,
-.navitem-toggle[aria-expanded="true"]::after { border-color: var(--accent); }
-.navitem-toggle[aria-expanded="true"]::after { transform: rotate(225deg) translate(-2px, -2px); }
-.navitem-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-
-.submenu {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%) translateY(-6px);
-  min-width: 232px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-top: 3px solid var(--accent-bright);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .16s ease, transform .16s ease, visibility .16s;
-  z-index: 50;
-}
-
-/* a hover bridge so the menu does not close while the cursor crosses the gap */
-.submenu::before {
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: 0; right: 0;
-  height: 12px;
-}
-
-.navitem:hover .submenu,
-.navitem:focus-within .submenu,
-.navitem.is-open .submenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
-.submenu a {
-  font-size: .9rem;
-  padding: 9px 13px;
-  color: var(--ink-soft);
-  border-radius: 6px;
-  white-space: nowrap;
-}
-.submenu a:hover { background: var(--mist); color: var(--accent-on-mist); }
 
 @media (max-width: 1000px) {
   .header-inner {
@@ -256,37 +178,6 @@ p:last-child { margin-bottom: 0; }
   .nav a { padding: 12px 13px; }
   .site-header { position: relative; }
   .brand-logo { height: 52px; }
-
-  /* in the stacked mobile menu the submenu becomes an indented list, and hover
-     must not open it — only the caret button does */
-  .navitem { display: block; }
-  .navitem > a { display: block; }
-  .navitem-toggle {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 40px;
-    height: 40px;
-    margin: 0;
-  }
-  .submenu {
-    position: static;
-    transform: none;
-    min-width: 0;
-    box-shadow: none;
-    border: 0;
-    border-left: 2px solid var(--mist);
-    border-radius: 0;
-    margin: 2px 0 6px 14px;
-    padding: 0 0 0 6px;
-    display: none;
-    opacity: 1;
-    visibility: visible;
-  }
-  .navitem:hover .submenu,
-  .navitem:focus-within .submenu { display: none; }
-  .navitem.is-open .submenu { display: flex; transform: none; }
-  .submenu::before { display: none; }
 }
 
 @media (max-width: 520px) {
@@ -808,8 +699,32 @@ p:last-child { margin-bottom: 0; }
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
-  transition: transform .55s cubic-bezier(.3, .7, .3, 1), visibility 0s .28s;
+  transition: transform .55s cubic-bezier(.3, .7, .3, 1), visibility 0s .28s,
+              background .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
+
+/* hover emphasis — the lift goes on the wrapper so it cannot disturb the
+   rotateY transforms the faces depend on */
+.flip { transition: transform .18s ease; }
+.flip:hover,
+.flip:focus-within { transform: translateY(-4px); z-index: 2; }
+
+.flip:hover .flip-face,
+.flip:focus-within .flip-face {
+  background: var(--mist);
+  border-color: #a9dfe2;
+  border-top-color: var(--accent);
+  box-shadow: 0 12px 26px -14px rgba(31, 41, 51, .35);
+}
+
+.flip:hover .flip-front h3,
+.flip:focus-within .flip-front h3 { color: var(--accent-on-mist); }
+
+.flip:hover .flip-overview,
+.flip:focus-within .flip-overview { color: var(--ink); }
+
+.flip:hover .flip-btn,
+.flip:focus-within .flip-btn { border-color: #8ed2d6; }
 
 .flip-front { transform: rotateY(0deg); visibility: visible; }
 .flip-back {
@@ -923,6 +838,9 @@ p:last-child { margin-bottom: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   .flip-face { transition: visibility 0s; }
+  .flip { transition: none; }
+  .flip:hover,
+  .flip:focus-within { transform: none; }
 }
 
 /* ---------- Filters ---------- */
@@ -934,6 +852,11 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: 30px;
   align-items: center;
 }
+
+/* on Exploring Healthcare the chips sit under the search box, so they need
+   less space beneath them before the result count */
+.fieldsearch + .filters { margin: 16px 0 6px; }
+.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .filter-label {
   font-size: .85rem;

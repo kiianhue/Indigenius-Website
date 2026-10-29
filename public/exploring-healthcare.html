@@ -20,24 +20,7 @@
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="index.html">Home</a>
-      <div class="navitem">
-        <a href="exploring-healthcare.html" aria-current="page">Exploring Healthcare</a>
-        <button class="navitem-toggle" type="button" aria-expanded="false" aria-label="Show health fields"></button>
-        <div class="submenu">
-          <a href="exploring-healthcare.html#physician">Physician</a>
-          <a href="exploring-healthcare.html#nursing">Nursing</a>
-          <a href="exploring-healthcare.html#public-health">Public Health</a>
-          <a href="exploring-healthcare.html#chr">Community Health Representative</a>
-          <a href="exploring-healthcare.html#health-policy">Health Policy</a>
-          <a href="exploring-healthcare.html#social-work">Medical Social Work</a>
-          <a href="exploring-healthcare.html#psychology">Psychology</a>
-          <a href="exploring-healthcare.html#dentist">Dentist</a>
-          <a href="exploring-healthcare.html#physical-therapy">Physical Therapy</a>
-          <a href="exploring-healthcare.html#dietitian">Dietitian &amp; Nutritionist</a>
-          <a href="exploring-healthcare.html#research">Biomedical Research</a>
-          <a href="exploring-healthcare.html#veterinary">Veterinary Medicine</a>
-        </div>
-      </div>
+      <a href="exploring-healthcare.html" aria-current="page">Exploring Healthcare</a>
       <a href="stories-and-voices.html">Stories &amp; Voices</a>
       <a href="opportunities.html">Opportunities &amp; Support</a>
       <a href="about.html">About</a>
@@ -64,11 +47,20 @@
         <input type="search" id="fieldsearch" placeholder="Search a field &mdash; nursing, policy, research&hellip;" autocomplete="off">
         <button class="fieldsearch-clear" type="button" aria-label="Clear search" hidden>&times;</button>
       </div>
+      <div class="filters" role="group" aria-label="Filter by training length">
+        <span class="filter-label">Training after high school</span>
+        <button class="chip" data-filter="all" aria-pressed="true">All fields</button>
+        <button class="chip" data-filter="none" aria-pressed="false">No degree required</button>
+        <button class="chip" data-filter="short" aria-pressed="false">2&ndash;4 years</button>
+        <button class="chip" data-filter="mid" aria-pressed="false">About 6 years</button>
+        <button class="chip" data-filter="long" aria-pressed="false">8 years or more</button>
+      </div>
+
       <p class="fieldsearch-count" id="fieldcount" role="status" aria-live="polite"></p>
 
       <div class="flipgrid" id="fields">
 
-        <article class="flip" id="physician" data-name="Physician" data-tags="doctor md do surgery psychiatry family medicine rural primary care residency mcat">
+        <article class="flip" id="physician" data-years="long" data-name="Physician" data-tags="doctor md do surgery psychiatry family medicine rural primary care residency mcat">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -111,7 +103,7 @@
           </div>
         </article>
 
-        <article class="flip" id="nursing" data-name="Nursing" data-tags="nurse rn bsn adn nclex nurse practitioner midwife anesthetist msn dnp bedside">
+        <article class="flip" id="nursing" data-years="short" data-name="Nursing" data-tags="nurse rn bsn adn nclex nurse practitioner midwife anesthetist msn dnp bedside">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -153,7 +145,7 @@
           </div>
         </article>
 
-        <article class="flip" id="public-health" data-name="Public Health" data-tags="epidemiology mph health education program administration tribal health prevention population">
+        <article class="flip" id="public-health" data-years="mid" data-name="Public Health" data-tags="epidemiology mph health education program administration tribal health prevention population">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -196,7 +188,7 @@
           </div>
         </article>
 
-        <article class="flip" id="chr" data-name="Community Health Representative" data-tags="chr community health representative outreach home visits tribal public health community health worker paraprofessional">
+        <article class="flip" id="chr" data-years="none" data-name="Community Health Representative" data-tags="chr community health representative outreach home visits tribal public health community health worker paraprofessional">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -240,7 +232,7 @@
           </div>
         </article>
 
-        <article class="flip" id="health-policy" data-name="Health Policy" data-tags="policy law jd mpp government tribal sovereignty advocacy regulation legislation medicaid">
+        <article class="flip" id="health-policy" data-years="mid" data-name="Health Policy" data-tags="policy law jd mpp government tribal sovereignty advocacy regulation legislation medicaid">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -283,7 +275,7 @@
           </div>
         </article>
 
-        <article class="flip" id="social-work" data-name="Medical Social Work" data-tags="social work msw lcsw counseling behavioral health historical trauma case management advocacy">
+        <article class="flip" id="social-work" data-years="mid" data-name="Medical Social Work" data-tags="social work msw lcsw counseling behavioral health historical trauma case management advocacy">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -326,7 +318,7 @@
           </div>
         </article>
 
-        <article class="flip" id="psychology" data-name="Psychology" data-tags="psychologist psychology phd psyd mental health therapy counseling behavioral trauma internship clinical">
+        <article class="flip" id="psychology" data-years="long" data-name="Psychology" data-tags="psychologist psychology phd psyd mental health therapy counseling behavioral trauma internship clinical">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -369,7 +361,7 @@
           </div>
         </article>
 
-        <article class="flip" id="dentist" data-name="Dentist" data-tags="dentist dental dds dmd oral health teeth hygienist dat residency dental therapist dhat">
+        <article class="flip" id="dentist" data-years="long" data-name="Dentist" data-tags="dentist dental dds dmd oral health teeth hygienist dat residency dental therapist dhat">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -413,7 +405,7 @@
           </div>
         </article>
 
-        <article class="flip" id="physical-therapy" data-name="Physical Therapy" data-tags="physical therapist dpt rehabilitation rehab mobility injury recovery amputation diabetes movement sports">
+        <article class="flip" id="physical-therapy" data-years="long" data-name="Physical Therapy" data-tags="physical therapist dpt rehabilitation rehab mobility injury recovery amputation diabetes movement sports">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -456,7 +448,7 @@
           </div>
         </article>
 
-        <article class="flip" id="dietitian" data-name="Dietitian and Nutritionist" data-tags="dietitian nutritionist rdn nutrition food sovereignty diabetes traditional foods dpd internship">
+        <article class="flip" id="dietitian" data-years="mid" data-name="Dietitian and Nutritionist" data-tags="dietitian nutritionist rdn nutrition food sovereignty diabetes traditional foods dpd internship">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -499,7 +491,7 @@
           </div>
         </article>
 
-        <article class="flip" id="research" data-name="Biomedical Research" data-tags="phd research scientist laboratory academia postdoc epidemiology dissertation nih principal investigator">
+        <article class="flip" id="research" data-years="long" data-name="Biomedical Research" data-tags="phd research scientist laboratory academia postdoc epidemiology dissertation nih principal investigator">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -542,7 +534,7 @@
           </div>
         </article>
 
-        <article class="flip" id="veterinary" data-name="Veterinary Medicine" data-tags="veterinarian dvm animals livestock ranching zoonotic one health navle food sovereignty">
+        <article class="flip" id="veterinary" data-years="long" data-name="Veterinary Medicine" data-tags="veterinarian dvm animals livestock ranching zoonotic one health navle food sovereignty">
           <div class="flip-inner">
 
             <div class="flip-face flip-front">
@@ -639,32 +631,6 @@
     t.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  // Health-fields dropdown: hover opens it on desktop (CSS); the caret button is
-  // the control for touch and keyboard users.
-  document.querySelectorAll('.navitem').forEach(function (item) {
-    var btn = item.querySelector('.navitem-toggle');
-    if (!btn) return;
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      var open = item.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    item.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        item.classList.remove('is-open');
-        btn.setAttribute('aria-expanded', 'false');
-        btn.focus();
-      }
-    });
-  });
-  document.addEventListener('click', function (e) {
-    document.querySelectorAll('.navitem.is-open').forEach(function (item) {
-      if (item.contains(e.target)) return;
-      item.classList.remove('is-open');
-      var b = item.querySelector('.navitem-toggle');
-      if (b) b.setAttribute('aria-expanded', 'false');
-    });
-  });
 
   // ---------- Flip cards ----------
   var fields = Array.prototype.slice.call(document.querySelectorAll('#fields .flip'));
@@ -701,20 +667,45 @@
   var empty = document.getElementById('fieldempty');
   var clear = document.querySelector('.fieldsearch-clear');
 
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.filters .chip'));
+  var activeFilter = 'all';
+
+  // search text and the training-length filter both narrow the same set
   function runSearch() {
     var q = (input.value || '').trim().toLowerCase();
     var shown = 0;
     fields.forEach(function (card) {
       var hay = (card.dataset.name + ' ' + card.dataset.tags + ' ' +
                  card.querySelector('.flip-kicker').textContent).toLowerCase();
-      var hit = !q || hay.indexOf(q) !== -1;
+      var matchesText = !q || hay.indexOf(q) !== -1;
+      var matchesFilter = activeFilter === 'all' || card.dataset.years === activeFilter;
+      var hit = matchesText && matchesFilter;
       card.hidden = !hit;
       if (hit) shown++; else setFlipped(card, false);
     });
     empty.hidden = shown !== 0;
-    count.textContent = q ? (shown + (shown === 1 ? ' field' : ' fields') + ' matching “' + input.value.trim() + '”') : '';
+
+    var label = '';
+    if (q || activeFilter !== 'all') {
+      label = shown + (shown === 1 ? ' field' : ' fields');
+      if (q) label += ' matching “' + input.value.trim() + '”';
+      if (activeFilter !== 'all') {
+        var chip = chips.filter(function (c) { return c.dataset.filter === activeFilter; })[0];
+        label += (q ? ', ' : ' — ') + chip.textContent.toLowerCase();
+      }
+    }
+    count.textContent = label;
     clear.hidden = !q;
   }
+
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+      chip.setAttribute('aria-pressed', 'true');
+      activeFilter = chip.dataset.filter;
+      runSearch();
+    });
+  });
 
   if (input) {
     input.addEventListener('input', runSearch);
@@ -729,7 +720,11 @@
     if (!location.hash) return;
     var card = document.getElementById(location.hash.slice(1));
     if (!card || !card.classList.contains('flip')) return;
-    if (input && input.value) { input.value = ''; runSearch(); }
+    // clear any active search or filter so the linked card is actually visible
+    if (input) input.value = '';
+    activeFilter = 'all';
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.filter === 'all' ? 'true' : 'false'); });
+    runSearch();
     card.scrollIntoView({ block: 'center' });
     card.classList.add('is-target');
     setTimeout(function () { card.classList.remove('is-target'); }, 1600);
