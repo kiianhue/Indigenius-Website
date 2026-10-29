@@ -425,6 +425,17 @@ p:last-child { margin-bottom: 0; }
   background: var(--white);
   padding: 26px 24px;
   border-top: 3px solid var(--accent-bright);
+  position: relative;
+  transition: background .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+/* hovering a figure lifts it out of the grid and deepens the turquoise */
+.stat:hover,
+.stat:focus-within {
+  background: var(--mist);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px -12px rgba(31, 41, 51, .3);
+  z-index: 1;
 }
 
 .stat-num {
@@ -435,9 +446,35 @@ p:last-child { margin-bottom: 0; }
   line-height: 1;
   display: block;
   margin-bottom: 10px;
+  transition: color .18s ease, transform .18s ease;
+  transform-origin: left center;
 }
 
-.stat-label { font-size: .93rem; color: var(--ink-soft); line-height: 1.45; }
+.stat:hover .stat-num,
+.stat:focus-within .stat-num {
+  color: var(--accent-dark);
+  transform: scale(1.09);
+}
+
+.stat-label {
+  font-size: .93rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  transition: color .18s ease;
+}
+
+.stat:hover .stat-label,
+.stat:focus-within .stat-label { color: var(--ink); }
+
+/* respect a reduced-motion preference: keep the colour shift, drop the movement */
+@media (prefers-reduced-motion: reduce) {
+  .stat,
+  .stat-num { transition: background .18s ease, color .18s ease; }
+  .stat:hover,
+  .stat:focus-within { transform: none; }
+  .stat:hover .stat-num,
+  .stat:focus-within .stat-num { transform: none; }
+}
 
 .source-note {
   font-size: .83rem;
