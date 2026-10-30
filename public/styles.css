@@ -1281,6 +1281,30 @@ details.questions li { margin-bottom: 9px; }
   margin-top: 18px;
 }
 
+.founder-link {
+  margin: 16px 0 0;
+  font-size: .95rem;
+}
+.founder-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--accent-on-mist);
+  text-decoration: none;
+}
+.founder-link a::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform .15s ease;
+}
+.founder-link a:hover { text-decoration: underline; }
+.founder-link a:hover::after { transform: rotate(45deg) translate(2px, -2px); }
+
 /* ---------- Pull quote ---------- */
 
 .pullquote {
