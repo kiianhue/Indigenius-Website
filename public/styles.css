@@ -662,8 +662,8 @@ p:last-child { margin-bottom: 0; }
   background: linear-gradient(165deg, var(--mist) 0%, #e3f6f7 55%, #f2fbfb 100%);
   border: 1px solid #a9dfe2;
   border-radius: var(--radius);
-  padding: clamp(30px, 4vw, 44px) clamp(24px, 4vw, 48px);
-  margin-bottom: 38px;
+  padding: clamp(26px, 3vw, 36px) clamp(24px, 3vw, 34px);
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -673,11 +673,11 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: .6em;
 }
 
-/* full-strength ink: the soft gray drops below AA on the mist tint */
+/* full-strength ink: the soft gray drops below AA on the mist tint.
+   No max-width — the text runs the panel's full width to match the rows below. */
 .overview-panel p {
   color: var(--ink);
-  max-width: 68ch;
-  margin: 0 auto;
+  margin: 0;
 }
 .overview-panel strong { color: var(--accent-on-mist); }
 
