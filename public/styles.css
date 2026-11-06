@@ -567,6 +567,258 @@ p:last-child { margin-bottom: 0; }
   .pillar:focus-within { transform: none; border-left-width: 3px; }
 }
 
+/* ---------- Nav dropdown ---------- */
+
+.navitem { position: relative; display: flex; align-items: center; }
+
+.navitem-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-left: -7px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.navitem-toggle::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid var(--ink-faint);
+  border-bottom: 2px solid var(--ink-faint);
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform .18s ease, border-color .18s ease;
+}
+.navitem:hover .navitem-toggle::after,
+.navitem-toggle[aria-expanded="true"]::after { border-color: var(--accent); }
+.navitem-toggle[aria-expanded="true"]::after { transform: rotate(225deg) translate(-2px, -2px); }
+.navitem-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+.submenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 190px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent-bright);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .16s ease, transform .16s ease, visibility .16s;
+  z-index: 50;
+}
+
+/* hover bridge so the menu does not close as the cursor crosses the gap */
+.submenu::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0; right: 0;
+  height: 12px;
+}
+
+.navitem:hover .submenu,
+.navitem:focus-within .submenu,
+.navitem.is-open .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.submenu a {
+  font-size: .9rem;
+  padding: 9px 13px;
+  color: var(--ink-soft);
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.submenu a:hover { background: var(--mist); color: var(--accent-on-mist); }
+
+/* ---------- Visual roadmap (College Timeline) ---------- */
+
+.roadmap {
+  list-style: none;
+  margin: 0 0 38px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  counter-reset: step;
+}
+
+.roadmap-step {
+  position: relative;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* the connecting line, drawn as a bar behind each dot */
+.roadmap-step::before {
+  content: "";
+  position: absolute;
+  top: 46px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--mist);
+}
+.roadmap-step:first-child::before { left: 50%; }
+.roadmap-step:last-child::before { right: 50%; }
+
+.roadmap-grade {
+  display: block;
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--accent);
+  margin-bottom: 14px;
+  min-height: 2.6em;
+}
+
+.roadmap-dot {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 19px;
+  height: 19px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 4px solid var(--accent-bright);
+  transition: transform .18s ease, border-color .18s ease;
+}
+
+.roadmap-3 { grid-template-columns: repeat(3, 1fr); }
+
+.roadmap-label {
+  display: block;
+  font-size: .95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+/* a stage carrying two actions lists them one per line */
+.roadmap-label span {
+  display: block;
+  margin-top: 7px;
+}
+
+.roadmap-step:hover .roadmap-dot {
+  transform: scale(1.25);
+  border-color: var(--accent);
+}
+
+/* stacked and vertical once six across stops fitting */
+@media (max-width: 820px) {
+  .roadmap,
+  .roadmap-3 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+  .roadmap-step {
+    display: grid;
+    grid-template-columns: 19px 1fr;
+    column-gap: 18px;
+    text-align: left;
+    padding: 0 0 26px 0;
+  }
+  .roadmap-step::before {
+    top: 10px;
+    bottom: -10px;
+    left: 8px;
+    right: auto;
+    width: 3px;
+    height: auto;
+  }
+  .roadmap-step:first-child::before { left: 8px; top: 10px; }
+  .roadmap-step:last-child::before { display: none; }
+  .roadmap-dot { grid-row: 1 / span 2; margin: 0; }
+  .roadmap-grade { grid-column: 2; margin-bottom: 3px; min-height: 0; }
+  .roadmap-label { grid-column: 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roadmap-dot { transition: none; }
+  .roadmap-step:hover .roadmap-dot { transform: none; }
+}
+
+/* ---------- College timeline ---------- */
+
+.grade-note {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  margin-bottom: 26px;
+}
+
+/* each season is a step on a vertical line running down the year */
+.season {
+  position: relative;
+  padding-left: 26px;
+  padding-bottom: 26px;
+  border-left: 2px solid var(--mist);
+}
+.season:last-child { border-left-color: transparent; padding-bottom: 4px; }
+
+.season::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 7px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--accent-bright);
+}
+
+.season h3,
+.season h4 {
+  font-size: 1.05rem;
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--accent-on-mist);
+  margin: 0 0 10px;
+}
+
+/* a grade with no seasons inside it needs no line or marker */
+.season-plain {
+  border-left: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+.season-plain::before { display: none; }
+
+.season ul {
+  margin: 0;
+  padding-left: 19px;
+  color: var(--ink-soft);
+}
+.season li { margin-bottom: 11px; line-height: 1.6; }
+.season li:last-child { margin-bottom: 0; }
+.season strong { color: var(--ink); }
+
+/* the grade groups reuse the Opportunities collapsible styling */
+#main .group + .group { margin-top: 10px; }
+
+@media (max-width: 520px) {
+  .season { padding-left: 20px; }
+}
+
 /* ---------- Field search (Exploring Healthcare) ---------- */
 
 .sr-only {

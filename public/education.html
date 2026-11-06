@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Education — Indigenius</title>
+<meta name="description" content="Guidance for Native students on the road into higher education — starting with a grade-by-grade college application timeline.">
+<link rel="canonical" href="https://www.indigeniushealth.com/education.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Indigenius">
+<meta property="og:title" content="Education — Indigenius">
+<meta property="og:description" content="Guidance for Native students on the road into higher education — starting with a grade-by-grade college application timeline.">
+<meta property="og:url" content="https://www.indigeniushealth.com/education.html">
+<meta property="og:image" content="https://www.indigeniushealth.com/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="logo.png" alt="IndiGenius" width="1226" height="480">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="exploring-healthcare.html">Exploring Healthcare</a>
+      <div class="navitem">
+        <a href="education.html" aria-current="page">Education</a>
+        <button class="navitem-toggle" type="button" aria-expanded="false" aria-label="Show education pages"></button>
+        <div class="submenu">
+          <a href="college-timeline.html">Timeline</a>
+        </div>
+      </div>
+      <a href="stories-and-voices.html">Stories &amp; Voices</a>
+      <a href="opportunities.html">Opportunities &amp; Support</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Section four</p>
+      <h1>Education</h1>
+      <p class="lede">Knowing which career you want is one thing. Knowing what to do this semester to get there is another. This section covers the road in.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap wrap-narrow">
+
+      <div class="grid grid-2">
+
+        <a class="card card-link" href="college-timeline.html">
+          <h3>College Timeline</h3>
+          <p>What to do and when, from 9th grade through the summer after graduation — exams, recommendation letters, essays, financial aid, and the Native-specific programs that have their own deadlines.</p>
+          <span class="card-cta">Open the timeline</span>
+        </a>
+
+      </div>
+
+      <div class="callout">
+        <h3>More coming to this section</h3>
+        <p>Indigenius is a living project. If there is something about the road into college or health professions school you wish existed here, email <a href="mailto:Indigenius00@gmail.com">Indigenius00@gmail.com</a> and we will work to add it.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">Indigenius</p>
+        <p>A platform for Indigenous student advancement in healthcare. Centering Indigenous voices, knowledge, and mentorship.</p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul>
+          <li><a href="exploring-healthcare.html">Exploring Healthcare</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="college-timeline.html">College Timeline</a></li>
+          <li><a href="stories-and-voices.html">Stories &amp; Voices</a></li>
+          <li><a href="opportunities.html">Opportunities &amp; Support</a></li>
+          <li><a href="about.html">About Indigenius</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Indigenius — a senior capstone project, Department of Biology, Stanford University.</p>
+      <p>Education and employment figures from the U.S. Bureau of Labor Statistics. Scholarship details change year to year; always confirm deadlines on the program's own site.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var t = document.querySelector('.nav-toggle');
+  var n = document.getElementById('nav');
+  t.addEventListener('click', function () {
+    var open = n.classList.toggle('open');
+    t.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('.navitem').forEach(function (item) {
+    var btn = item.querySelector('.navitem-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = item.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        item.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.navitem.is-open').forEach(function (item) {
+      if (item.contains(e.target)) return;
+      item.classList.remove('is-open');
+      var b = item.querySelector('.navitem-toggle');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
