@@ -656,6 +656,16 @@ p:last-child { margin-bottom: 0; }
 }
 .submenu a:hover { background: var(--mist); color: var(--accent-on-mist); }
 
+/* ---------- Section intro paragraph ---------- */
+
+.section-intro {
+  max-width: 68ch;
+  margin-bottom: 36px;
+}
+.section-intro p { color: var(--ink-soft); }
+.section-intro p + p { margin-top: 1em; }
+.section-intro strong { color: var(--ink); }
+
 /* ---------- Under construction pages ---------- */
 
 .underconstruction {
