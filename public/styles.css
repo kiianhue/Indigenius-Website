@@ -656,15 +656,30 @@ p:last-child { margin-bottom: 0; }
 }
 .submenu a:hover { background: var(--mist); color: var(--accent-on-mist); }
 
-/* ---------- Section intro paragraph ---------- */
+/* ---------- Overview panel (College Journey) ---------- */
 
-.section-intro {
-  max-width: 68ch;
-  margin-bottom: 36px;
+.overview-panel {
+  background: linear-gradient(165deg, var(--mist) 0%, #e3f6f7 55%, #f2fbfb 100%);
+  border: 1px solid #a9dfe2;
+  border-radius: var(--radius);
+  padding: clamp(30px, 4vw, 44px) clamp(24px, 4vw, 48px);
+  margin-bottom: 38px;
+  text-align: center;
 }
-.section-intro p { color: var(--ink-soft); }
-.section-intro p + p { margin-top: 1em; }
-.section-intro strong { color: var(--ink); }
+
+.overview-panel h2 {
+  font-size: 1.45rem;
+  color: var(--accent-on-mist);
+  margin-bottom: .6em;
+}
+
+/* full-strength ink: the soft gray drops below AA on the mist tint */
+.overview-panel p {
+  color: var(--ink);
+  max-width: 68ch;
+  margin: 0 auto;
+}
+.overview-panel strong { color: var(--accent-on-mist); }
 
 /* ---------- Under construction pages ---------- */
 
