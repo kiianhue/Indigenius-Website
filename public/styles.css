@@ -100,7 +100,7 @@ p:last-child { margin-bottom: 0; }
   grid-template-columns: 1fr auto 1fr;   /* equal side columns => nav sits on the page centre */
   align-items: center;
   gap: 20px;
-  min-height: 104px;
+  min-height: 76px;
 }
 
 .brand {
@@ -113,17 +113,22 @@ p:last-child { margin-bottom: 0; }
 }
 
 .brand-logo {
-  height: 68px;
+  height: 42px;
   width: auto;
   display: block;
 }
 
+/* six items will not always fit on one line — let the nav wrap rather than
+   squeeze, and let it use the brand's spare column width before it does */
 .nav {
   grid-column: 2;
   justify-self: center;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 2px 4px;
+  padding: 8px 0;
 }
 
 .nav a {
@@ -151,10 +156,17 @@ p:last-child { margin-bottom: 0; }
 }
 
 
+/* below this the centred column gets tight, so give the nav the full width
+   and let it run wider rather than wrapping each label */
+@media (max-width: 1180px) {
+  .header-inner { grid-template-columns: auto 1fr; }
+  .nav { grid-column: 2; justify-self: end; }
+}
+
 @media (max-width: 1000px) {
   .header-inner {
     grid-template-columns: auto 1fr;
-    min-height: 76px;
+    min-height: 68px;
   }
   .brand { grid-column: 1; }
   .nav-toggle { display: block; grid-column: 2; justify-self: end; }
@@ -177,11 +189,11 @@ p:last-child { margin-bottom: 0; }
   .nav.open { display: flex; }
   .nav a { padding: 12px 13px; }
   .site-header { position: relative; }
-  .brand-logo { height: 52px; }
+  .brand-logo { height: 38px; }
 }
 
 @media (max-width: 520px) {
-  .brand-logo { height: 42px; }
+  .brand-logo { height: 34px; }
 }
 
 /* ---------- Hero ---------- */
