@@ -656,6 +656,68 @@ p:last-child { margin-bottom: 0; }
 }
 .submenu a:hover { background: var(--mist); color: var(--accent-on-mist); }
 
+/* ---------- Under construction pages ---------- */
+
+.underconstruction {
+  background: var(--white);
+  border: 1px dashed #a9dfe2;
+  border-radius: var(--radius);
+  padding: clamp(36px, 5vw, 54px) clamp(24px, 4vw, 48px);
+  text-align: center;
+}
+
+.underconstruction h2 {
+  font-size: 1.5rem;
+  margin-bottom: .6em;
+}
+
+.underconstruction p {
+  color: var(--ink-soft);
+  max-width: 54ch;
+  margin-inline: auto;
+}
+.underconstruction p + p { margin-top: 1em; }
+
+.underconstruction .uc-ask {
+  margin-top: 1.6em;
+  padding-top: 1.4em;
+  border-top: 1px solid var(--border);
+  font-size: .94rem;
+}
+
+/* three turquoise bars, a plain "being built" mark rather than an emoji */
+.uc-mark {
+  display: block;
+  width: 54px;
+  height: 30px;
+  margin: 0 auto 22px;
+  background:
+    linear-gradient(var(--accent-bright), var(--accent-bright)) left   bottom / 14px 30px no-repeat,
+    linear-gradient(var(--accent), var(--accent))               center bottom / 14px 19px no-repeat,
+    linear-gradient(var(--mist), var(--mist))                   right  bottom / 14px 24px no-repeat;
+  border-radius: 2px;
+}
+
+/* a card for a section that is not written yet */
+.card-soon { position: relative; }
+
+.card-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--ink-soft);
+  background: var(--gray-200);
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin-bottom: 12px;
+}
+
+.card-soon .card-cta { color: var(--ink-faint); }
+.card-soon:hover .card-badge { background: var(--mist); color: var(--accent-on-mist); }
+
 /* ---------- Visual roadmap (College Timeline) ---------- */
 
 .roadmap {
